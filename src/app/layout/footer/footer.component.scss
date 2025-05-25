@@ -1,0 +1,82 @@
+.footer {
+    background-color: #111;
+    color: white;
+    padding: 20px 40px;
+    font-family: Arial, sans-serif;
+    border-top: 3px solid #6c63ff;
+    margin-top: auto; // ⬅️ Esto hace que el footer se pegue abajo
+  
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+  
+    .footer-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      max-width: 30%;
+  
+      img {
+        width: 24px;
+        height: 24px;
+      }
+  
+      div {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+    }
+  
+    .social-section {
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+  
+      .scroll-top {
+        color: white;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+  
+      .social-icons {
+        display: flex;
+        gap: 10px;
+  
+        a img {
+          width: 24px;
+          height: 24px;
+          transition: transform 0.2s;
+  
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer .footer-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .footer .footer-section {
+      max-width: 100%;
+    }
+  
+    .footer .social-section {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+  

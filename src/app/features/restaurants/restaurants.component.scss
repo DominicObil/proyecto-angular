@@ -1,0 +1,88 @@
+.restaurants-page {
+  padding: 2rem;
+  background-color: #111;
+  min-height: 100vh;
+  color: #f0f0f0;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+
+    button,
+    input {
+      background-color: #1e1e1e;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 0.6rem 1rem;
+      font-family: inherit;
+      border-radius: 6px;
+      outline: none;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background-color: #2c2c2c;
+      }
+    }
+
+    input {
+      flex: 1 1 200px;
+    }
+  }
+
+  .restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .restaurant-card {
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    .image-placeholder {
+      background-color: #004080;
+      height: 120px;
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-content h3 {
+      margin: 0.5rem 0;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #bbb;
+      margin: 0;
+    }
+
+    .card-content span {
+      font-size: 0.85rem;
+      color: #999;
+    }
+  }
+
+  .error-message {
+    color: #ff6b6b;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+}

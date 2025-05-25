@@ -1,0 +1,32 @@
+
+<div class="reserva-form-container">
+  <h2>Reserva tu mesa</h2>
+  <div *ngIf="restauranteNombre" class="restaurante-nombre">
+    <strong>{{ restauranteNombre }}</strong>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha</mat-label>
+      <input matInput formControlName="fechaReserva" type="date" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Hora</mat-label>
+      <input matInput formControlName="horaReserva" type="time" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Número de personas</mat-label>
+      <input matInput formControlName="numeroPersonas" type="number" min="1" />
+    </mat-form-field>
+      <mat-form-field appearance="fill">
+    <mat-label>ID Turno</mat-label>
+    <input matInput formControlName="turnoId" type="number" required>
+  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Observaciones</mat-label>
+      <input matInput formControlName="comentarios" />
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Reservar mesa</button>
+  </form>
+</div>
+

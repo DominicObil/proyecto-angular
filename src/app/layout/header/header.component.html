@@ -1,0 +1,25 @@
+<header class="header">
+    <div class="header-logo">
+      <a href="/">🍽️ TicketLogger</a>
+    </div>
+  
+    <nav class="header-nav" [class.open]="menuOpen">
+      <a href="#">Inicio</a>
+      <a href="#">Experiencias</a>
+      <a href="#">Contacto</a>
+      <li *ngIf="isLoggedIn"><a routerLink="/restaurants">Restaurantes</a></li>
+
+    </nav>
+  
+    <div class="header-actions">
+      <button class="btn-outline">Iniciar sesión</button>
+      <button class="btn-primary">Registrarse</button>
+      <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+
+    </div>
+  
+    <button class="hamburger" (click)="toggleMenu()" aria-label="Menú">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+  
