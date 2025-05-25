@@ -1,0 +1,16 @@
+<div class="mis-reservas-container">
+  <h2>Mis reservas</h2>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <ul *ngIf="reservas.length > 0; else sinReservas">
+    <li *ngFor="let r of reservas">
+      <strong>{{ r.fechaReserva }} {{ r.horaReserva }}</strong> -
+      {{ r.numeroPersonas }} personas -
+      <span *ngIf="r.restauranteId">Restaurante #{{ r.restauranteId }}</span>
+      <button mat-stroked-button color="primary" (click)="editarReserva(r.id)">Editar</button>
+      <button mat-stroked-button color="warn" (click)="borrarReserva(r.id)">Borrar</button>
+    </li>
+  </ul>
+  <ng-template #sinReservas>
+    <p>No tienes reservas aún.</p>
+  </ng-template>
+</div>
