@@ -1,0 +1,66 @@
+.mis-reservas-owner-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .error {
+    color: #f44336;
+    background: #ffebee;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .empty {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-top: 2rem;
+  }
+
+  .reservas-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+  }
+
+  .reserva-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+    padding: 1.25rem 1.5rem;
+    min-width: 260px;
+    max-width: 350px;
+    flex: 1 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 1.05rem;
+    .acciones {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .mis-reservas-owner-container {
+    padding: 0.3rem;
+    .reservas-list {
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .reserva-card {
+      max-width: 100%;
+      padding: 0.8rem;
+      font-size: 0.97rem;
+    }
+  }
+}

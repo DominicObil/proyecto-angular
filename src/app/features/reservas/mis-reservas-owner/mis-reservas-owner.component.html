@@ -1,0 +1,33 @@
+<div class="mis-reservas-owner-container">
+  <h2>Reservas de mi Restaurante</h2>
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+  <div *ngIf="reservas.length === 0 && !error" class="empty">
+    No hay reservas registradas para tu restaurante.
+  </div>
+  <div class="reservas-list" *ngIf="reservas.length > 0">
+    <div class="reserva-card" *ngFor="let r of reservas">
+      <div>
+        <strong>Fecha:</strong> {{ r.fechaReserva | date:'dd/MM/yyyy' }}
+      </div>
+      <div>
+        <strong>Hora:</strong> {{ r.horaReserva }}
+      </div>
+      <div>
+        <strong>Cliente:</strong> {{ r.user?.firstName }} {{ r.user?.lastName }} ({{ r.user?.username }})
+      </div>
+      <div>
+        <strong>Nº Personas:</strong> {{ r.numeroPersonas }}
+      </div>
+      <div>
+        <strong>Observaciones:</strong> {{ r.comentarios || 'Ninguna' }}
+      </div>
+      <div class="acciones">
+        <!-- Si quieres botones de editar/borrar aquí -->
+        <!-- <button mat-stroked-button color="primary">Editar</button>
+        <button mat-stroked-button color="warn">Eliminar</button> -->
+      </div>
+    </div>
+  </div>
+</div>

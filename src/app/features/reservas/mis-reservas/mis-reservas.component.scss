@@ -1,0 +1,100 @@
+.reservas-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #212121;
+  border-radius: 14px;
+  padding: 28px 16px;
+  color: #fff;
+
+  h2 {
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 36px;
+    letter-spacing: 1.2px;
+  }
+}
+
+.reserva-card {
+  display: flex;
+  align-items: center;
+  background: #2c2c2c;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  padding: 18px 12px;
+  box-shadow: 0 3px 18px 0 rgba(0,0,0,0.12);
+  transition: border 0.2s;
+  border: 2px solid transparent;
+
+  &:hover {
+    border: 2px solid #ff7b1a;
+  }
+
+  .restaurante-img {
+    width: 66px;
+    height: 66px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+    background: #fff;
+  }
+
+  .reserva-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .restaurante-nombre {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ff7b1a;
+      margin-bottom: 2px;
+    }
+    .reserva-fecha {
+      color: #eee;
+      font-size: 1.05rem;
+      margin-bottom: 3px;
+    }
+    .reserva-personas {
+      font-size: 1rem;
+      color: #bbb;
+    }
+  }
+
+  .reserva-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    button {
+      width: 98px;
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 7px;
+      text-transform: none;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .reservas-container {
+    padding: 10px 2px;
+  }
+  .reserva-card {
+    flex-direction: column;
+    align-items: stretch;
+    .restaurante-img {
+      margin: 0 auto 14px auto;
+    }
+    .reserva-actions {
+      flex-direction: row;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+    }
+  }
+}

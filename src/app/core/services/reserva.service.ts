@@ -37,5 +37,22 @@ borrarReserva(id: number): Observable<any> {
   return this.http.delete(`${this.baseUrl}/${id}`, { headers });
 }
 
+actualizarReserva(id: number, data: any): Observable<any> {
+  const token = this.authService.getToken();
+  const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+  return this.http.put(`${this.baseUrl}/${id}`, data, { headers });
+}
+obtenerReservaPorId(id: number): Observable<any> {
+  const token = this.authService.getToken();
+  const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+  return this.http.get(`${this.baseUrl}/${id}`, { headers });
+}
+
+ getReservasByRestaurante(restauranteId: number): Observable<any[]> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    return this.http.get<any[]>(`${this.baseUrl}/restaurante/${restauranteId}`, { headers });
+  }
+
 
 }

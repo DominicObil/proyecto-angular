@@ -21,6 +21,17 @@ export const routes: Routes = [
   component: MisReservasComponent,
   canActivate: [authGuard] // si tienes guardas
 },
+ {
+  path: 'mis-reservas-owner',
+  loadComponent: () => import('./features/reservas/mis-reservas-owner/mis-reservas-owner.component').then(m => m.MisReservasOwnerComponent),
+  canActivate: [authGuard]
+},
+
+{
+  path: 'editar-reserva/:id',
+  loadComponent: () => import('./features/reservas/editar-reserva/editar-reserva.component').then(m => m.EditarReservaComponent),
+  canActivate: [authGuard], // Si usas guardas
+},
   { path: 'forbidden', component: ForbiddenComponent },
   
   { path: '**', component: Error404Component },

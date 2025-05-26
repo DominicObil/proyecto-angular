@@ -45,5 +45,12 @@ export class RestaurantService {
   });
   return this.http.get(`${this.baseUrl}/${id}`, { headers });
 }
+getMisRestaurantes(): Observable<any[]> {
+  const token = this.authService.getToken();
+  const headers = { Authorization: `Bearer ${token}` };
+  // Ajusta el endpoint a como lo tengas en el backend
+  return this.http.get<any[]>(`${this.baseUrl}/mis-restaurantes`, { headers });
+}
+
 
 }

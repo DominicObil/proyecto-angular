@@ -1,15 +1,29 @@
-<div class="mis-reservas-container">
-  <h2>Mis reservas</h2>
+<div class="reservas-container">
+  <h2>Gestiona tus reservas</h2>
   <div *ngIf="error" class="error">{{ error }}</div>
-  <ul *ngIf="reservas.length > 0; else sinReservas">
-    <li *ngFor="let r of reservas">
-      <strong>{{ r.fechaReserva }} {{ r.horaReserva }}</strong> -
-      {{ r.numeroPersonas }} personas -
-      <span *ngIf="r.restauranteId">Restaurante #{{ r.restauranteId }}</span>
-      <button mat-stroked-button color="primary" (click)="editarReserva(r.id)">Editar</button>
-      <button mat-stroked-button color="warn" (click)="borrarReserva(r.id)">Borrar</button>
-    </li>
-  </ul>
+  <div *ngIf="reservas.length > 0; else sinReservas">
+    <div *ngFor="let r of reservas" class="reserva-card">
+      <img
+        *ngIf="r.restauranteImagen"
+        [src]="r.restauranteImagen"
+        alt="Imagen restaurante"
+        class="restaurante-img"
+      />
+      <div class="reserva-info">
+        <div class="restaurante-nombre">{{ r.restauranteNombre || 'Restaurante #' + r.restauranteId }}</div>
+        <div class="reserva-fecha">
+          {{ r.fechaReserva | date: 'EEEE, d ' }}de {{ r.fechaReserva | date: 'MMMM' }}, {{ r.horaReserva }}
+        </div>
+        <div class="reserva-personas">
+          {{ r.numeroPersonas }} persona{{ r.numeroPersonas > 1 ? 's' : '' }}
+        </div>
+      </div>
+      <div class="reserva-actions">
+        <button mat-raised-button color="accent" (click)="editarReserva(r.id)">Modificar</button>
+        <button mat-raised-button color="warn" (click)="borrarReserva(r.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
   <ng-template #sinReservas>
     <p>No tienes reservas aún.</p>
   </ng-template>
