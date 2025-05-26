@@ -12,10 +12,10 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'restaurants', component: RestaurantsComponent },
   {
-    path: 'reservar/:restauranteId',
-    loadComponent: () => import('./features/reservas/reserva-form/reserva-form.component').then(m => m.ReservaFormComponent),
-    // Puedes agregar guards si lo deseas
-  },
+  path: 'reservar/:restauranteId',
+  component: ReservaFormComponent,
+  data: { renderMode: 'client' }
+},
   {
   path: 'mis-reservas',
   component: MisReservasComponent,
