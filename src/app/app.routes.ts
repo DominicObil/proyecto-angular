@@ -12,11 +12,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'restaurants', component: RestaurantsComponent },
   {
-  path: 'reservar/:restauranteId',
-  component: ReservaFormComponent,
-  data: { renderMode: 'client' }
-},
-  {
   path: 'mis-reservas',
   component: MisReservasComponent,
   canActivate: [authGuard] // si tienes guardas
