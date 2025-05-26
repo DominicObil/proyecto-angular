@@ -6,6 +6,8 @@ import { HomeComponent } from './features/home/home.component';
 import { ForbiddenComponent } from './features/forbidden/forbidden.component';
 import { Error404Component } from './features/error404/error404.component';
 import { MisReservasComponent } from './features/reservas/mis-reservas/mis-reservas.component';
+import { RestaurantsListComponent } from './features/restaurants/restaurants-list/restaurants-list.component';
+
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,15 +19,22 @@ export const routes: Routes = [
     // Puedes agregar guards si lo deseas
   },
   {
+  path: 'register',
+  loadComponent: () => import('./features/auth/register/register.component').then(m => m.RegisterComponent)
+},
+  {
   path: 'mis-reservas',
   component: MisReservasComponent,
   canActivate: [authGuard] // si tienes guardas
 },
  {
-  path: 'mis-reservas-owner',
-  loadComponent: () => import('./features/reservas/mis-reservas-owner/mis-reservas-owner.component').then(m => m.MisReservasOwnerComponent),
-  canActivate: [authGuard]
+  path: 'reservas-restaurante/:restauranteId',
+  loadComponent: () => import('./features/reservas/reservas-por-restaurante/reservas-por-restaurante.component').then(m => m.ReservasPorRestauranteComponent)
 },
+  {
+    path: 'mis-restaurantes',
+    component: RestaurantsListComponent
+  },
 
 {
   path: 'editar-reserva/:id',

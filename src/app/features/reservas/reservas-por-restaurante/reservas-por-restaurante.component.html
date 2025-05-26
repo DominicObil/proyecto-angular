@@ -1,0 +1,27 @@
+<table *ngIf="!loading && !error && reservas.length > 0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Personas</th>
+      <th>Comentarios</th>
+      <th>Estado</th>
+      <th>Acciones</th> <!-- Añadimos columna acciones -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reserva of reservas">
+      <td>{{ reserva.id }}</td>
+      <td>{{ reserva.fechaReserva }}</td>
+      <td>{{ reserva.horaReserva }}</td>
+      <td>{{ reserva.numeroPersonas }}</td>
+      <td>{{ reserva.comentarios }}</td>
+      <td>{{ reserva.estado }}</td>
+      <td>
+        <button (click)="irAEditar(reserva.id)">Editar</button>
+        <button (click)="borrarReserva(reserva.id)">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

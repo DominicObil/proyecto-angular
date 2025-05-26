@@ -48,11 +48,16 @@ obtenerReservaPorId(id: number): Observable<any> {
   return this.http.get(`${this.baseUrl}/${id}`, { headers });
 }
 
- getReservasByRestaurante(restauranteId: number): Observable<any[]> {
+// src/app/core/services/reserva.service.ts
+  // --- ARREGLADO AQUÍ ---
+  getReservasPorRestaurante(restauranteId: number): Observable<any[]> {
     const token = this.authService.getToken();
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    // Usa la misma baseUrl
     return this.http.get<any[]>(`${this.baseUrl}/restaurante/${restauranteId}`, { headers });
   }
+
+
 
 
 }

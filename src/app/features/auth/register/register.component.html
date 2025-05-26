@@ -1,0 +1,22 @@
+<div class="landing-container">
+  <div class="landing-left">
+    <h1>Haz crecer tu restaurante con nosotros</h1>
+    <p>Miles de personas reservan cada día,<br>
+      ¿Vas a dejar pasar la oportunidad?</p>
+  </div>
+  <div class="landing-right">
+    <h2>Únete a nosotros</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <input formControlName="firstName" placeholder="Nombre" />
+      <input formControlName="lastName" placeholder="Apellidos" />
+      <input formControlName="username" placeholder="Usuario" />
+      <input type="password" formControlName="password" placeholder="Contraseña" />
+      <input formControlName="image" placeholder="URL de imagen (opcional)" />
+      <button type="submit" [disabled]="registerForm.invalid || loading">
+        {{ loading ? 'Registrando...' : 'Registrar' }}
+      </button>
+    </form>
+    <div *ngIf="success" style="color: #7fff7f; margin-top:16px;">{{ success }}</div>
+    <div *ngIf="error" style="color: #ff7878; margin-top:16px;">{{ error }}</div>
+  </div>
+</div>

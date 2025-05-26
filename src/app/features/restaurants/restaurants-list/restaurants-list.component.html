@@ -1,0 +1,31 @@
+<div *ngIf="loading">Cargando tus restaurantes...</div>
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+<table *ngIf="!loading && !error && restaurantes.length > 0">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Capacidad</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let restaurante of restaurantes">
+      <td>{{ restaurante.nombre }}</td>
+      <td>{{ restaurante.direccion }}</td>
+      <td>{{ restaurante.telefono }}</td>
+      <td>{{ restaurante.capacidad }}</td>
+      <td>
+        <button (click)="irAReservas(restaurante.id)">
+          Ver reservas
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!loading && !error && restaurantes.length === 0">
+  <p>No tienes restaurantes registrados.</p>
+</div>

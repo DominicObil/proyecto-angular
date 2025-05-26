@@ -1,0 +1,137 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #181818;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+.landing-container {
+  display: flex;
+  max-width: 900px;
+  width: 95%;
+  background: #232323;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  margin: 40px auto;
+}
+
+.landing-left {
+  flex: 1 1 60%;
+  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+  padding: 60px 40px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 250px;
+}
+
+.landing-left h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+
+.landing-left p {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.landing-right {
+  flex: 1 1 40%;
+  background: #232323;
+  padding: 48px 32px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 260px;
+}
+
+.landing-right h2 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 22px;
+  font-weight: 600;
+  text-align: left;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input, textarea {
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: #181818;
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: #ff7800;
+}
+
+button[type="submit"] {
+  background: #ff7800;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.07rem;
+  padding: 12px;
+  margin-top: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(255,120,0,0.15);
+  transition: background 0.2s;
+}
+button[type="submit"]:hover {
+  background: #ff9100;
+}
+
+::placeholder {
+  color: #ccc;
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .landing-container {
+    flex-direction: column;
+    max-width: 99vw;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    min-height: 100vh;
+  }
+  .landing-left,
+  .landing-right {
+    min-width: 100%;
+    padding: 40px 18px;
+  }
+  .landing-left {
+    background-position: center 35%;
+    padding-bottom: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .landing-left h1 {
+    font-size: 1.3rem;
+  }
+  .landing-right h2 {
+    font-size: 1rem;
+  }
+  input, textarea, button[type="submit"] {
+    font-size: .96rem;
+    padding: 10px;
+  }
+}
