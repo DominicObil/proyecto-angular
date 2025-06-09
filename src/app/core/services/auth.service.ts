@@ -73,6 +73,25 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
+
+  /**
+ * Decodifica el token JWT y saca el userId (o sub, o username, según tu backend)
+ */
+getUserId(): number | null {
+  const token = this.getToken();
+  if (!token) return null;
+
+  try {
+    // El payload está en la segunda parte del JWT, base64url
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    // Ajusta el campo según tu backend: userId, sub, id, etc.
+    return payload.userId || payload.id || null;
+  } catch (e) {
+    return null;
+  }
+}
+
+
  
 
 }

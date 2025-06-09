@@ -1,0 +1,190 @@
+.reserva-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: #181818;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+.reserva-left {
+  flex: 1.1;
+  min-width: 320px;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.reserva-img-bg {
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+  min-height: 350px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.reserva-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #111c 80%, transparent 100%);
+}
+
+.reserva-msg {
+  position: absolute;
+  left: 40px;
+  bottom: 38px;
+  z-index: 2;
+  color: #fff;
+  text-shadow: 0 4px 18px #000c;
+  max-width: 88%;
+}
+
+.reserva-msg h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  line-height: 1.13;
+}
+
+.reserva-msg p {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.reserva-right {
+  flex: 1;
+  background: #222;
+  min-width: 340px;
+  padding: 54px 38px 38px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -10px 0 44px rgba(0,0,0,0.18);
+}
+
+.reserva-right h2 {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  letter-spacing: .3px;
+}
+
+.restaurante-nombre {
+  color: #ff9100;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 1.09rem;
+  letter-spacing: .5px;
+}
+
+.reserva-form {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Angular Material field override */
+::ng-deep .reserva-field .mat-form-field-flex {
+  background: #181818 !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+::ng-deep .reserva-field .mat-form-field-infix {
+  color: #fff !important;
+}
+::ng-deep .reserva-field .mat-input-element {
+  color: #fff !important;
+  background: transparent !important;
+  font-size: 1rem;
+  padding: 13px 12px !important;
+}
+::ng-deep .reserva-field .mat-form-field-label {
+  color: #ff9100 !important;
+  font-size: 1rem;
+  opacity: 0.97 !important;
+}
+::ng-deep .reserva-field.mat-form-field-appearance-fill .mat-form-field-underline {
+  display: none !important;
+}
+::ng-deep .reserva-field.mat-form-field-appearance-fill .mat-form-field-ripple {
+  display: none !important;
+}
+::ng-deep .reserva-field .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
+.reserva-btn {
+  width: 100%;
+  background: #ff9100 !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  font-size: 1.09rem !important;
+  border-radius: 8px !important;
+  margin-top: 6px;
+  padding: 13px 0 !important;
+  box-shadow: 0 3px 14px rgba(255,145,0,0.13);
+  transition: background 0.16s;
+  letter-spacing: .5px;
+}
+
+.reserva-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.reserva-btn:hover:enabled {
+  background: #ffb36b !important;
+  color: #232323 !important;
+}
+
+.success-message {
+  color: #51ffac;
+  margin-top: 16px;
+  font-size: .98rem;
+  text-align: center;
+}
+.error-message {
+  color: #ff6d6d;
+  margin-top: 16px;
+  font-size: .98rem;
+  text-align: center;
+}
+
+@media (max-width: 950px) {
+  .reserva-msg { left: 16px; bottom: 16px; }
+  .reserva-right, .reserva-left { padding: 26px 10px; }
+  .reserva-msg h1 { font-size: 1.24rem; }
+  .reserva-msg p { font-size: 0.98rem; }
+}
+
+@media (max-width: 650px) {
+  .reserva-wrapper {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .reserva-left, .reserva-right {
+    width: 100%;
+    min-width: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+  .reserva-right {
+    padding: 32px 5vw 26px 5vw;
+  }
+  .reserva-msg {
+    position: static;
+    text-align: left;
+    padding: 22px 14px 0 14px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 6px #0007;
+  }
+  .reserva-img-bg { min-height: 140px; }
+}

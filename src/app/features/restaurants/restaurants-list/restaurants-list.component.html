@@ -1,31 +1,27 @@
-<div *ngIf="loading">Cargando tus restaurantes...</div>
-<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+<div class="restaurantes-bg">
+  <div *ngIf="loading" class="rest-loading">Cargando tus restaurantes...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
 
-<table *ngIf="!loading && !error && restaurantes.length > 0">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Dirección</th>
-      <th>Teléfono</th>
-      <th>Capacidad</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let restaurante of restaurantes">
-      <td>{{ restaurante.nombre }}</td>
-      <td>{{ restaurante.direccion }}</td>
-      <td>{{ restaurante.telefono }}</td>
-      <td>{{ restaurante.capacidad }}</td>
-      <td>
-        <button (click)="irAReservas(restaurante.id)">
+  <div *ngIf="!loading && !error && restaurantes.length > 0" class="restaurantes-grid">
+    <div class="restaurante-card" *ngFor="let r of restaurantes">
+      <div class="rest-img-wrap">
+        <img [src]="r.imagen" alt="Imagen restaurante" class="rest-img" />
+      </div>
+      <div class="rest-info">
+        <div class="rest-nombre">{{ r.nombre }}</div>
+        <div class="rest-direccion">{{ r.direccion }}</div>
+        <div class="rest-telefono">📞 {{ r.telefono }}</div>
+        <div class="rest-capacidad">Capacidad: {{ r.capacidad }}</div>
+      </div>
+      <div class="rest-actions">
+        <button class="ver-btn" (click)="irAReservas(r.id)">
           Ver reservas
         </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      </div>
+    </div>
+  </div>
 
-<div *ngIf="!loading && !error && restaurantes.length === 0">
-  <p>No tienes restaurantes registrados.</p>
+  <div *ngIf="!loading && !error && restaurantes.length === 0" class="rest-vacio">
+    <p>No tienes restaurantes registrados.</p>
+  </div>
 </div>

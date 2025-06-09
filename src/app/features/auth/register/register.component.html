@@ -1,22 +1,24 @@
-<div class="landing-container">
-  <div class="landing-left">
+<div class="register-wrapper">
+  <div class="register-left">
     <h1>Haz crecer tu restaurante con nosotros</h1>
-    <p>Miles de personas reservan cada día,<br>
-      ¿Vas a dejar pasar la oportunidad?</p>
+    <p class="register-description">
+      Miles de personas reservan cada día,<br>
+      <span>¿Vas a dejar pasar la oportunidad?</span>
+    </p>
   </div>
-  <div class="landing-right">
+  <div class="register-right">
     <h2>Únete a nosotros</h2>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <input formControlName="firstName" placeholder="Nombre" />
-      <input formControlName="lastName" placeholder="Apellidos" />
-      <input formControlName="username" placeholder="Usuario" />
-      <input type="password" formControlName="password" placeholder="Contraseña" />
-      <input formControlName="image" placeholder="URL de imagen (opcional)" />
-      <button type="submit" [disabled]="registerForm.invalid || loading">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+      <input formControlName="firstName" placeholder="Nombre" autocomplete="off"/>
+      <input formControlName="lastName" placeholder="Apellidos" autocomplete="off"/>
+      <input formControlName="username" placeholder="Usuario" autocomplete="off"/>
+      <input type="password" formControlName="password" placeholder="Contraseña" autocomplete="new-password"/>
+      <input formControlName="image" placeholder="URL de imagen (opcional)" autocomplete="off"/>
+      <button type="submit" class="register-button" [disabled]="registerForm.invalid || loading">
         {{ loading ? 'Registrando...' : 'Registrar' }}
       </button>
     </form>
-    <div *ngIf="success" style="color: #7fff7f; margin-top:16px;">{{ success }}</div>
-    <div *ngIf="error" style="color: #ff7878; margin-top:16px;">{{ error }}</div>
+    <div *ngIf="success" class="success-message">{{ success }}</div>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
   </div>
 </div>

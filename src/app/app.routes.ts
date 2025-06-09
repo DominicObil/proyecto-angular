@@ -7,8 +7,7 @@ import { ForbiddenComponent } from './features/forbidden/forbidden.component';
 import { Error404Component } from './features/error404/error404.component';
 import { MisReservasComponent } from './features/reservas/mis-reservas/mis-reservas.component';
 import { RestaurantsListComponent } from './features/restaurants/restaurants-list/restaurants-list.component';
-
-
+import { SolicitudesRestaurantePanelComponent } from './features/restaurants/solicitudes-restaurante-panel/solicitudes-restaurante-panel.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -16,32 +15,44 @@ export const routes: Routes = [
   {
     path: 'reservar/:restauranteId',
     loadComponent: () => import('./features/reservas/reserva-form/reserva-form.component').then(m => m.ReservaFormComponent),
-    // Puedes agregar guards si lo deseas
   },
   {
-  path: 'register',
-  loadComponent: () => import('./features/auth/register/register.component').then(m => m.RegisterComponent)
-},
+    path: 'register',
+    loadComponent: () => import('./features/auth/register/register.component').then(m => m.RegisterComponent)
+  },
   {
-  path: 'mis-reservas',
-  component: MisReservasComponent,
-  canActivate: [authGuard] // si tienes guardas
-},
- {
-  path: 'reservas-restaurante/:restauranteId',
-  loadComponent: () => import('./features/reservas/reservas-por-restaurante/reservas-por-restaurante.component').then(m => m.ReservasPorRestauranteComponent)
-},
+    path: 'mis-reservas',
+    component: MisReservasComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'reservas-restaurante/:restauranteId',
+    loadComponent: () => import('./features/reservas/reservas-por-restaurante/reservas-por-restaurante.component').then(m => m.ReservasPorRestauranteComponent)
+  },
   {
     path: 'mis-restaurantes',
     component: RestaurantsListComponent
   },
+  {
+  path: 'panel-solicitudes',
+  component: SolicitudesRestaurantePanelComponent,
+  canActivate: [authGuard] // y si quieres, un adminGuard
+}
+,
+  {
+    path: 'editar-reserva/:id',
+    loadComponent: () => import('./features/reservas/editar-reserva/editar-reserva.component').then(m => m.EditarReservaComponent),
+    canActivate: [authGuard],
+  },
 
-{
-  path: 'editar-reserva/:id',
-  loadComponent: () => import('./features/reservas/editar-reserva/editar-reserva.component').then(m => m.EditarReservaComponent),
-  canActivate: [authGuard], // Si usas guardas
-},
+  // 👉 NUEVA RUTA para el formulario de solicitud de restaurante
+  {
+    path: 'solicitar-restaurante',
+    loadComponent: () =>
+      import('./features/restaurants/solicitud-restaurante-form/solicitud-restaurante-form.component')
+        .then(m => m.SolicitudRestauranteFormComponent)
+  },
+
   { path: 'forbidden', component: ForbiddenComponent },
-  
   { path: '**', component: Error404Component },
 ];

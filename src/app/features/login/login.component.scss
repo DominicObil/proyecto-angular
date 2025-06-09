@@ -1,130 +1,168 @@
 .login-wrapper {
-    display: flex;
-    min-height: 100vh;
-    background-color: #000;
-  
-    .login-left {
-      flex: 1;
+  display: flex;
+  min-height: 100vh;
+  background-image: url("../../../img/ChatGPT\ Image\ 3\ jun\ 2025\,\ 18_09_19.png");
 
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: left;
-      padding: 40px;
-  
-      h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        line-height: 1.4;
-        max-width: 80%;
-      }
+  .login-left {
+    flex: 1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 40px;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      line-height: 1.4;
+      max-width: 80%;
     }
-  
-    .login-right {
-      flex: 1;
-      background-color: #1a1a1a;
-      color: white;
+  }
+
+  .login-right {
+    flex: 1;
+    background-color: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centra el contenido */
+    padding: 40px;
+    max-width: 380px;   /* FORMULARIO MÁS DELGADO */
+    width: 100%;
+    margin: auto;      /* Centrado horizontal */
+    height: 100%;
+
+    h2 {
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    .login-form {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 40px;
-  
-      h2 {
-        margin-bottom: 30px;
-        font-size: 1.8rem;
-      }
-  
-      .login-form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-  
-        .form-group {
-          input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #444;
-            border-radius: 6px;
-            background-color: #000;
-            color: white;
-          }
-        }
-  
-        .password-group {
-          position: relative;
-  
-          .toggle-password {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            cursor: pointer;
-            font-size: 1rem;
-          }
-        }
-  
-        .forgot-password {
-          font-size: 0.85rem;
-          color: #ccc;
-          margin-top: -10px;
-          margin-bottom: 10px;
-          text-decoration: underline;
-          cursor: pointer;
-        }
-  
-        .login-button {
-          background-color: #ff8c32;
-          color: white;
-          border: none;
+      gap: 20px;
+      width: 100%;
+      max-width: 320px; /* Más delgado */
+      margin: 0 auto;
+      height: 100%;
+
+      .form-group {
+        input {
+          width: 100%;
           padding: 12px;
+          border: 1px solid #444;
           border-radius: 6px;
-          font-weight: bold;
+          background-color: #000;
+          color: white;
+        }
+      }
+
+      .password-group {
+        position: relative;
+
+        .toggle-password {
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
           cursor: pointer;
-  
-          &:hover {
-            background-color: #ff7300;
-          }
+          font-size: 1rem;
         }
       }
-  
-      .google-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        background: white;
-        color: #333;
-        padding: 12px;
-        border: none;
-        border-radius: 6px;
-        margin-top: 20px;
+
+      .forgot-password {
+        font-size: 0.85rem;
+        color: #ccc;
+        margin-top: -10px;
+        margin-bottom: 10px;
+        text-decoration: underline;
         cursor: pointer;
-  
-        img {
-          width: 20px;
-          height: 20px;
+      }
+
+      .login-button {
+        background-color: #ff8c32;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #ff7300;
         }
       }
-  
+    }
+
+    .google-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: white;
+      color: #333;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 20px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 320px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+      max-width: 320px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .login-wrapper {
+    .login-right {
+      max-width: 90vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-wrapper {
+    flex-direction: column;
+
+    .login-left {
+      display: none;
+    }
+
+    .login-right {
+      padding: 24px;
+      max-width: 100vw;
+      min-width: 0;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .login-wrapper {
+    .login-right {
+      padding: 10px;
+      .login-form,
+      .google-button,
       .error-message {
-        color: red;
-        margin-top: 10px;
+        max-width: 100vw;
+        font-size: 0.95rem;
       }
     }
   }
-  
-  @media (max-width: 768px) {
-    .login-wrapper {
-      flex-direction: column;
-  
-      .login-left {
-        display: none;
-      }
-  
-      .login-right {
-        padding: 20px;
-      }
-    }
-  }
-  
+}

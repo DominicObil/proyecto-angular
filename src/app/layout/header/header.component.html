@@ -4,19 +4,18 @@
     </div>
   
     <nav class="header-nav" [class.open]="menuOpen">
-      <a href="#">Inicio</a>
-      <a href="#">Experiencias</a>
-      <a href="#">Contacto</a>
       <li *ngIf="isLoggedIn"><a routerLink="/restaurants">Restaurantes</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/mis-reservas">Mis Reservas</a></li>
+
 
     </nav>
   
     <div class="header-actions">
-      <button class="btn-outline">Iniciar sesión</button>
-      <button class="btn-primary">Registrarse</button>
-      <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+  <button class="btn-outline" (click)="irALogin()">Iniciar sesión</button>
+  <button class="btn-primary" (click)="irARegistro()">Registrarse</button>
+  <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+</div>
 
-    </div>
   
     <button class="hamburger" (click)="toggleMenu()" aria-label="Menú">
       <i class="fas fa-bars"></i>

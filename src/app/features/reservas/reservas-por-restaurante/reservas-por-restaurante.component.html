@@ -1,27 +1,47 @@
-<table *ngIf="!loading && !error && reservas.length > 0">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Fecha</th>
-      <th>Hora</th>
-      <th>Personas</th>
-      <th>Comentarios</th>
-      <th>Estado</th>
-      <th>Acciones</th> <!-- Añadimos columna acciones -->
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let reserva of reservas">
-      <td>{{ reserva.id }}</td>
-      <td>{{ reserva.fechaReserva }}</td>
-      <td>{{ reserva.horaReserva }}</td>
-      <td>{{ reserva.numeroPersonas }}</td>
-      <td>{{ reserva.comentarios }}</td>
-      <td>{{ reserva.estado }}</td>
-      <td>
-        <button (click)="irAEditar(reserva.id)">Editar</button>
-        <button (click)="borrarReserva(reserva.id)">Borrar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="reserva-list-bg">
+  <div *ngIf="loading" class="reserva-list-loading">Cargando reservas...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div *ngIf="!loading && !error && reservas.length > 0" class="reserva-list-grid">
+    <div class="reserva-list-card" *ngFor="let r of reservas">
+      <div class="reserva-list-info">
+        <div class="reserva-list-row">
+          <span class="label">ID:</span>
+          <span class="value">{{ r.id }}</span>
+        </div>
+        <div class="reserva-list-row">
+          <span class="label">Fecha:</span>
+          <span class="value">{{ r.fechaReserva }}</span>
+        </div>
+        <div class="reserva-list-row">
+          <span class="label">Hora:</span>
+          <span class="value">{{ r.horaReserva }}</span>
+        </div>
+        <div class="reserva-list-row">
+          <span class="label">Personas:</span>
+          <span class="value">{{ r.numeroPersonas }}</span>
+        </div>
+        <div class="reserva-list-row">
+          <span class="label">Comentarios:</span>
+          <span class="value">{{ r.comentarios || '-' }}</span>
+        </div>
+        <div class="reserva-list-row">
+          <span class="label">Estado:</span>
+          <span class="value estado" [ngClass]="{
+            'pendiente': r.estado === 'pendiente',
+            'confirmada': r.estado === 'confirmada',
+            'cancelada': r.estado === 'cancelada'
+          }">{{ r.estado }}</span>
+        </div>
+      </div>
+      <div class="reserva-list-actions">
+        <button class="editar-btn" (click)="irAEditar(r.id)">Editar</button>
+        <button class="borrar-btn" (click)="borrarReserva(r.id)">Borrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !error && reservas.length === 0" class="reserva-list-vacio">
+    <p>No hay reservas.</p>
+  </div>
+</div>

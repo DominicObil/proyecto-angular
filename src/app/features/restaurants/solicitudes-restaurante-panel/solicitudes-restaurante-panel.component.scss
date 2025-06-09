@@ -1,0 +1,125 @@
+$color-bg: #fff;
+$color-shadow: rgba(30, 34, 90, 0.07);
+$color-header: #f3f6fa;
+$color-header-text: #3b4252;
+$color-border: #ececec;
+$color-success: #14b36b;
+$color-success-hover: #0e9954;
+$color-danger: #e5484d;
+$color-danger-hover: #c03034;
+$color-spinner: #1877f2;
+$color-info-bg: #eaf6ff;
+$color-info-text: #146ca1;
+$color-danger-bg: #ffe5e7;
+$color-danger-text: #c12a35;
+$radius: 12px;
+$font: 'Segoe UI', Arial, sans-serif;
+
+:host {
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: $font;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #353b48;
+  font-weight: 600;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: $color-bg;
+  box-shadow: 0 2px 8px $color-shadow;
+  border-radius: $radius;
+  overflow: hidden;
+
+  thead {
+    tr {
+      background: $color-header;
+      color: $color-header-text;
+      font-size: 1rem;
+    }
+  }
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid $color-border;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.btn {
+  padding: 0.375rem 1rem;
+  font-size: 0.98rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &-success {
+    background: $color-success;
+    color: #fff;
+    &:hover:enabled {
+      background: $color-success-hover;
+    }
+  }
+  &-danger {
+    background: $color-danger;
+    color: #fff;
+    &:hover:enabled {
+      background: $color-danger-hover;
+    }
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.spinner-border {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-width: 0.3em;
+  border-top-color: $color-spinner;
+  border-right-color: #ccc;
+  border-bottom-color: #ccc;
+  border-left-color: #ccc;
+  border-style: solid;
+  border-radius: 50%;
+  animation: spinner-rotate 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 1.2rem;
+
+  &-info {
+    background: $color-info-bg;
+    color: $color-info-text;
+  }
+  &-danger {
+    background: $color-danger-bg;
+    color: $color-danger-text;
+  }
+}
+
+.text-center { text-align: center; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 2rem; }
+.my-4 { margin: 2rem 0; }
+.me-2 { margin-right: 0.5rem; }

@@ -1,0 +1,35 @@
+<mat-card>
+  <h2>Solicita tu Restaurante</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" />
+      <mat-error *ngIf="form.get('nombre')?.invalid">Nombre requerido (máx 100)</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Dirección</mat-label>
+      <input matInput formControlName="direccion" />
+      <mat-error *ngIf="form.get('direccion')?.invalid">Dirección requerida (máx 200)</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="telefono" />
+      <mat-error *ngIf="form.get('telefono')?.invalid">Teléfono debe ser 9 dígitos</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Capacidad</mat-label>
+      <input matInput formControlName="capacidad" type="number" min="1" />
+      <mat-error *ngIf="form.get('capacidad')?.invalid">Capacidad mínima: 1</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || loading">
+      {{ loading ? 'Enviando...' : 'Enviar solicitud' }}
+    </button>
+    <mat-spinner *ngIf="loading" diameter="24"></mat-spinner>
+    <div *ngIf="success" class="success-message">{{ success }}</div>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+  </form>
+</mat-card>

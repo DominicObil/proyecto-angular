@@ -1,0 +1,158 @@
+body, .reserva-list-bg {
+  background: #181818 !important;
+  min-height: 100vh;
+}
+.reserva-list-bg {
+  min-height: 100vh;
+  padding: 0;
+}
+
+.reserva-list-loading,
+.reserva-list-vacio {
+  color: #bbb;
+  text-align: center;
+  font-size: 1.08rem;
+  padding: 40px 0 26px 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.reserva-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 22px;
+  padding: 40px 3vw 24px 3vw;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.reserva-list-card {
+  background: #232323;
+  border-radius: 13px;
+  box-shadow: 0 2px 16px #0007;
+  padding: 20px 22px 14px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px;
+  transition: border 0.16s, box-shadow 0.12s;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.reserva-list-card:hover {
+  border: 2px solid #ff9100;
+  box-shadow: 0 4px 26px #ff910025;
+}
+
+.reserva-list-info {
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.reserva-list-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.reserva-list-row .label {
+  font-weight: bold;
+  color: #ff9100;
+  min-width: 90px;
+  font-size: 0.99rem;
+}
+
+.reserva-list-row .value {
+  color: #fff;
+  font-size: 0.99rem;
+  word-break: break-word;
+}
+
+.estado {
+  text-transform: capitalize;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.98rem;
+  font-weight: bold;
+}
+.estado.pendiente {
+  background: #4c4c00;
+  color: #ffe13b;
+}
+.estado.confirmada {
+  background: #0c4937;
+  color: #51ffa5;
+}
+.estado.cancelada {
+  background: #402020;
+  color: #ff5656;
+}
+
+.reserva-list-actions {
+  display: flex;
+  gap: 13px;
+  margin-top: 18px;
+  justify-content: flex-end;
+}
+
+.editar-btn {
+  background: #ff9100;
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 7px;
+  font-size: 1.04rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.13s;
+  box-shadow: 0 1.5px 7px #ff91002d;
+}
+.editar-btn:hover {
+  background: #ffa63a;
+  color: #232323;
+}
+
+.borrar-btn {
+  background: #ff5555;
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 7px;
+  font-size: 1.04rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.13s;
+}
+.borrar-btn:hover {
+  background: #ff8989;
+  color: #232323;
+}
+
+@media (max-width: 700px) {
+  .reserva-list-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+    padding: 10px 1vw 24px 1vw;
+  }
+  .reserva-list-card {
+    padding: 17px 10px 13px 12px;
+    min-height: 0;
+  }
+  .reserva-list-row .label {
+    min-width: 72px;
+    font-size: .97rem;
+  }
+  .reserva-list-actions {
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 11px;
+  }
+  .editar-btn, .borrar-btn {
+    width: 100%;
+    padding: 11px 0;
+    font-size: .98rem;
+  }
+}

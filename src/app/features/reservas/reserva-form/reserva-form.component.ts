@@ -26,6 +26,12 @@ export class ReservaFormComponent implements OnInit {
   restauranteNombre: string = '';
   restauranteId: number | null = null;
 
+  // --- NUEVO: Propiedades para el estado UI ---
+  loading = false;
+  success: string | null = null;
+  error: string | null = null;
+  // --------------------------------------------
+
   private reservaService = inject(ReservaService);
   private restaurantService = inject(RestaurantService);
   private route = inject(ActivatedRoute);
@@ -62,11 +68,25 @@ export class ReservaFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      // getRawValue para incluir los valores disabled
+      this.loading = true;
+      this.success = null;
+      this.error = null;
+
       const data = this.form.getRawValue();
       this.reservaService.crearReserva(data).subscribe({
-        next: () => this.router.navigate(['/mis-reservas']),
-        error: (err) => console.error('❌ Error al crear reserva', err),
+        next: () => {
+          this.loading = false;
+          this.success = 'Reserva realizada con éxito';
+          // Navegar tras un pequeño delay para que se vea el mensaje de éxito
+          setTimeout(() => {
+            this.router.navigate(['/mis-reservas']);
+          }, 1200);
+        },
+        error: (err) => {
+          this.loading = false;
+          this.error = 'Hubo un error al crear la reserva';
+          console.error('❌ Error al crear reserva', err);
+        },
       });
     }
   }
