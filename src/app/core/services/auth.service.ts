@@ -73,10 +73,10 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  getRestauranteId(): string {
-  // Devuelve un valor temporal o real
-  return 'id-fake'; // Cambia esto por la lógica real si la tienes
+getRestauranteId(): number {
+  return 1; // o el número que corresponda
 }
+
 
 
  
